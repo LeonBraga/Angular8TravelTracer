@@ -1,0 +1,13 @@
+<div>
+  <mat-list>
+    <h3 matSubheader class="header-gastos">GASTOS CADASTRADOS</h3>
+    <mat-list-item *ngFor="let gasto of gastos" class="item">
+      <button mat-raised-button (click)="openBottomSheet()"><mat-icon matListIcon>folder</mat-icon></button>
+      <h3 matLine>{{ gasto.titulo }}</h3>
+      <p matLine class="legenda">
+        <span> {{ gasto.valor }} </span>
+        <span> -- {{ gasto.participantes }} </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</div>
