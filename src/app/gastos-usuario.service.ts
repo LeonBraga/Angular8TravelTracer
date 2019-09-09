@@ -83,8 +83,17 @@ export class GastosUsuarioService {
     }
   ];
 
+  gastosFiltrados: Gasto[];
+
   getGastos(): Gasto[] {
     return this.gastos;
+  }
+
+  getGastosFiltrado(gastoId: string) {
+    return this.gastos.filter(gasto => gasto.id.match(gastoId));
+  }
+
+  filtrarGastos(gastoID: string) {
   }
 
   constructor() { }

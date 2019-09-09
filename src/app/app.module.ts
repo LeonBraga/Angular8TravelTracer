@@ -97,7 +97,7 @@ import { DetalhesGastosComponent } from './detalhes-gastos/detalhes-gastos.compo
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
   ],
   exports: [
     BrowserAnimationsModule,

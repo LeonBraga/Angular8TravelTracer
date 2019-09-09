@@ -4,7 +4,6 @@ import { DetalhesGastosComponent } from '../detalhes-gastos/detalhes-gastos.comp
 import { GastosUsuarioService, Gasto } from '../gastos-usuario.service';
 
 
-
 @Component({
   selector: 'app-lista-gastos',
   templateUrl: './lista-gastos.component.html',
@@ -12,20 +11,22 @@ import { GastosUsuarioService, Gasto } from '../gastos-usuario.service';
 })
 export class ListaGastosComponent implements OnInit{
 
-  gastos: Gasto[];
-
   constructor(private bottomSheet: MatBottomSheet, private gastosService: GastosUsuarioService) {}
 
-  openBottomSheet(): void {
-    this.bottomSheet.open(DetalhesGastosComponent);
+  gastos: Gasto[];
+
+
+  ngOnInit(): void {
+    this.getGastos();
   }
 
   getGastos(): void {
     this.gastos = this.gastosService.getGastos();
   }
 
-  ngOnInit(): void {
-    this.getGastos();
+  openBottomSheet(): void {
+    this.bottomSheet.open(DetalhesGastosComponent, {
+      data: { this: this.gastos },
+    });
   }
-
 }
